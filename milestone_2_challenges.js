@@ -258,19 +258,21 @@ console.log(removeDuplicates([7, 1, 3, 4, 6, 2, 3, 2, 4, 1, 5]))
 //Challenge 16: Most Frequent
 
 function mostFrequent(arrayItems){
-    let max = 0;
-    let noOfRepeat = {}
+    let maxCount = 0;
+    let mostFrequentItem;
+    let frequecy = {}
     for(let i = 0; i < arrayItems.length; i++){
-        if (arrayItems[i] in noOfRepeat){
-            noOfRepeat[arrayItems[i]] = noOfRepeat[arrayItems[i]] + 1
-            if (noOfRepeat[arrayItems[i]] > max){
-                max = arrayItems[i]
+        if (arrayItems[i] in frequecy){
+            frequecy[arrayItems[i]] = frequecy[arrayItems[i]] + 1
+            if (frequecy[arrayItems[i]] > maxCount){
+                maxCount = frequecy[arrayItems[i]]
+                mostFrequentItem = arrayItems[i]
             }
         }else {
-            noOfRepeat[arrayItems[i]] = 1
+            frequecy[arrayItems[i]] = 1
         }
     }
-    return max
+    return mostFrequentItem
 }
 console.log(mostFrequent([1, 1, 2, 2, 3, 3, 3, 4]))
-console.log(mostFrequent(["apple", "banana", "apple", "orange", "banana", "apple"]))
+console.log(mostFrequent(["apple", "banana", "apple", "orange", "banana", "banana"]))
